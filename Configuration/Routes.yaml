@@ -7,23 +7,48 @@
 # Please refer to the FLOW3 manual for possible configuration options.   #
 #                                                                        #
 
+# $Id$
+
 ##
 # Subroutes from the Welcome package.
 #
 # If the package "Welcome" is installed, its fallback route will point to an
 # informative welcome screen.
 
--
-  name: 'Welcome'
-  uriPattern: '<WelcomeSubroutes>'
-  subRoutes:
-    WelcomeSubroutes:
-      package: TYPO3.Welcome
-
 ##
 # FLOW3 subroutes
 #
 
+-
+  name: 'AdminDemo'
+  uriPattern: '<AdminDemoSubroutes>'
+  defaults:
+    '@package':    'AdminDemo'
+    '@format':     'html'
+  subRoutes:
+    AdminDemoSubroutes:
+      package: AdminDemo
+
+-
+  name: 'Admin'
+  uriPattern: 'admin/<AdminSubroutes>'
+  defaults:
+    '@package':    'Admin'
+    '@format':     'html'
+  subRoutes:
+    AdminSubroutes:
+      package: Admin
+
+-
+  name: 'Blog'
+  uriPattern: 'blog/<BlogSubroutes>'
+  defaults:
+    '@package':    'TYPO3.Blog'
+    '@format':     'html'
+  subRoutes:
+    BlogSubroutes:
+      package: TYPO3.Blog
+    
 -
   name: 'FLOW3'
   uriPattern: '<FLOW3Subroutes>'
